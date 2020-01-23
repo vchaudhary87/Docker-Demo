@@ -6,12 +6,6 @@ pipeline {
                 echo 'Building....'
             }
         }
-        stage('Publish Build Artifacts') {
-            steps {
-                echo 'Publish Build Artifacts'
-                archiveArtifacts 'project/target/*.war'
-            }
-        }
         stage('CI') {
             steps {
                 echo 'CI'
