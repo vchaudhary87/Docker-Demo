@@ -19,7 +19,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- provided dependency -->
+        <!-- provided dependency test-->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
