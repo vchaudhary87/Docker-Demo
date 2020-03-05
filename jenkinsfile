@@ -5,7 +5,7 @@ pipeline {
 		PROJECT_ID = 'sri-super-league-b10'
                 CLUSTER_NAME = 'k8s-cluster-gcs'
                 LOCATION = 'us-central1-c'
-                CREDENTIALS_ID = 'k8s'		
+                CREDENTIALS_ID = 'sri-super-league-b10'
 	}
 	
     stages {	
