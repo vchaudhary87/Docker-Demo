@@ -2,9 +2,9 @@ pipeline {
     agent any 	
 	environment {
 		
-		PROJECT_ID = 'devopspipelinesrisri'
-                CLUSTER_NAME = 'kubernetes-cluster'
-                LOCATION = 'europe-west1-c'
+		PROJECT_ID = 'sri-super-league-b10'
+                CLUSTER_NAME = 'k8s-cluster-gcs'
+                LOCATION = 'us-central1-c'
                 CREDENTIALS_ID = 'kubernetes'		
 	}
 	
