@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: sritharan/devops:tagversion
+        image: gcr.io/Sri-Super-League-B10/devops:tagversion
         ports:
         - containerPort: 8080
 ---
