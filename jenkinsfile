@@ -30,7 +30,7 @@ pipeline {
 	   stage('Build Docker Image') { 
 		steps {
                    script {
-		      myimage = docker.build("srisridevops/devops:${env.BUILD_ID}")
+		      myimage = docker.build("sritharan/devops:${env.BUILD_ID}")
                    }
                 }
 	   }
