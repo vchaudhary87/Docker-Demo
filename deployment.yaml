@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: gcr.io/sri-super-league-b10/myapp:tagversion
+        image: gcr.io/sri-super-league-b10/tomcatgcs:tagversion
         ports:
         - containerPort: 8080
 ---
