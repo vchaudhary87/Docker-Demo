@@ -30,7 +30,7 @@ pipeline {
 	   stage('Build Docker Image') { 
 		steps {
                    script {
-            		myimage = docker.build("gcr.io/sri-super-league-b10/devops:${env.BUILD_ID}")
+            		myimage = docker.build("gcr.io/sri-super-league-b10/myapp:${env.BUILD_ID}")
                    }
                 }
 	   }
