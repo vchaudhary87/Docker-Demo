@@ -26,7 +26,8 @@ node {
     stage('Sonar Analysis') {
         withSonarQubeEnv('sonar') {
 	sh 'mvn clean package'
-        sh 'mvn sonar:sonar -Dsonar.host.url=http://35.224.54.238/ -Dsonar.login=a29b2b2da5f0a42dc37db12b04059fe18f575f12 -Dsonar.sources=. -Dsonar.tests=.'
+        sh 'mvn sonar:sonar'
+	//  -Dsonar.host.url=http://35.224.54.238/ -Dsonar.login=a29b2b2da5f0a42dc37db12b04059fe18f575f12 -Dsonar.sources=. -Dsonar.tests=.
 	}
     }
     stage('Deploy') {
