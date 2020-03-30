@@ -26,8 +26,8 @@ node {
     stage('Sonar Analysis') {
         withSonarQubeEnv('sonar') {
 	sh 'mvn clean package'
-        sh 'mvn sonar:sonar -Dsonar.host.url=http://35.247.7.26/ -Dsonar.login=08b2f003aad65c9969bbcfa6f6be1b5b2c178902 -Dsonar.sources=. -Dsonar.tests=.'
-        }
+        sh 'mvn sonar:sonar -Dsonar.host.url=http://35.224.54.238/ -Dsonar.login=a29b2b2da5f0a42dc37db12b04059fe18f575f12 -Dsonar.sources=. -Dsonar.tests=.'
+	}
     }
     stage('Deploy') {
 	deploy adapters: [tomcat7(credentialsId: 'gcptomcat', path: '', url: 'http://104.198.41.127:8080/')], contextPath: '/projects', war: '**/*.war'
