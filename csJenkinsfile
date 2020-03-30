@@ -11,7 +11,7 @@ node {
         git url: 'https://github.com/srisritharan/CI-with-Jenkins-in-AWS-Demo.git'
     }
     stage('Sonar Analysis') {
-        withSonarQubeEnv('sonarscanner') {
+        withSonarQubeEnv('sonar') {
 	//sh 'mvn clean package'
 	// sh 'mvn clean package sonar:sonar'
         sh 'mvn sonar:sonar'
