@@ -8,7 +8,7 @@ node {
  rtMaven.tool = "maven"
 
     stage('Clone sources') {
-        git url: 'https://github.com/srisritharan/webapp.git'
+        git url: 'https://github.com/srisritharan/CI-with-Jenkins-in-AWS-Demo.git'
     }
 
     stage('Artifactory configuration') {
