@@ -11,13 +11,6 @@ node {
         git url: 'https://github.com/srisritharan/CI-with-Jenkins-in-AWS-Demo.git'
     }
 
-    stage('Artifactory configuration') {
-        // Tool name from Jenkins configuration
-        rtMaven.tool = "maven"
-        // Set Artifactory repositories for dependencies resolution and artifacts deployment.
-        rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
-        rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
-    }
     stage('Maven build') {
         buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
 	slackSend channel: 'project-dcs', message: 'started ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)', tokenCredentialId: 'slack'
@@ -30,6 +23,13 @@ node {
         //sh 'mvn sonar:sonar'
 	//  -Dsonar.host.url=http://35.224.54.238/ -Dsonar.login=a29b2b2da5f0a42dc37db12b04059fe18f575f12 -Dsonar.sources=. -Dsonar.tests=.
 	}
+    }
+        stage('Artifactory configuration') {
+        // Tool name from Jenkins configuration
+        rtMaven.tool = "maven"
+        // Set Artifactory repositories for dependencies resolution and artifacts deployment.
+        rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
+        rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
     }
     stage('Deploy') {
 	deploy adapters: [tomcat7(credentialsId: 'gcptomcat', path: '', url: 'http://104.198.41.127:8080/')], contextPath: '/projects', war: '**/*.war'
