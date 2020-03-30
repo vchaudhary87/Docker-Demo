@@ -18,7 +18,11 @@ node {
         rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
         rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
     }
-
+    stage('Sonar Analysis') {
+        withSonarQubeEnv('sonar') {
+        sh 'mvn clean package sonar:sonar -Dsonar.host.url=http://35.247.7.26/ -Dsonar.login=08b2f003aad65c9969bbcfa6f6be1b5b2c178902'
+        }
+    }
     stage('Maven build') {
         buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
 	slackSend channel: 'project-dcs', message: 'started ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)', tokenCredentialId: 'slack'
