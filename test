@@ -3,7 +3,7 @@ node {
     git 'https://github.com/srisritharan/CI-with-Jenkins-in-AWS-Demo.git'
   }
   stage('SonarQube analysis') {
-    withSonarQubeEnv(credentialsId: 'a29b2b2da5f0a42dc37db12b04059fe18f575f12', installationName: 'sonar_scanner') { // You can override the credential to be used
+    withSonarQubeEnv(credentialsId: 'a29b2b2da5f0a42dc37db12b04059fe18f575f12', installationName: 'sonarqube') { // You can override the credential to be used
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.1492:sonar'
     }
   }
