@@ -26,7 +26,7 @@ public class ftat {
 		wait = new WebDriverWait(driver, 10);
 		driver.get(URL);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//h1[text()='Hello DevOps Engineers and Architects']")).isDisplayed();
+		driver.findElement(By.xpath("//h1[text()='JUPITER COMMUNICATION']")).isDisplayed();
 
 	}
 
